@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grain Platform CWP</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+    html { scroll-behavior: smooth; }
+
+    body { background: #ffffff; color: #0f172a; overflow-x: hidden; }
+
+    header {
+      position: fixed; top: 0; width: 100%; padding: 20px 40px;
+      background: rgba(255,255,255,0.8); backdrop-filter: blur(10px);
+      display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid #e5e7eb; z-index: 1000;
+    }
+
+    header nav a { margin-left: 20px; text-decoration: none; color: #334155; }
+
+    section {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      padding: 120px 40px;
+    }
+
+    .hero { text-align: center; }
+    .hero h2 { font-size: 48px; margin-bottom: 20px; }
+    .hero p { font-size: 20px; color: #64748b; }
+
+    .content { display: flex; gap: 60px; align-items: center; }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.2s; }
+    .delay-2 { transition-delay: 0.4s; }
+    .delay-3 { transition-delay: 0.6s; }
+
+    .content img {
+      width: 420px;
+      border-radius: 12px;
+    }
+
+    .text { max-width: 500px; }
+
+    footer {
+      background: #0f172a;
+      padding: 60px 40px;
+      color: #cbd5f5;
+    }
+
+    footer a { color: #cbd5f5; display: block; margin-bottom: 10px; text-decoration: none; }
+
+    @media(max-width: 900px) {
+      .content { flex-direction: column; text-align: center; }
+      .content img { width: 100%; }
+    }
+    .slider{
+      position:relative;
+      overflow:hidden;
+      padding:0;
+    }
+
+    .slide{
+      position:absolute;
+      width:100%;
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      opacity:0;
+      transition:1s;
+    }
+
+    .slide.active{
+      opacity:1;
+      position:relative;
+    }
+
+    .hero-image{
+      position:absolute;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:brightness(.55);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:900px;
+      text-align:center;
+      padding:40px;
+      color:white;
+    }
+
+    .hero-content p{
+      font-size:20px;
+    }
+
+    .slider-dots{
+      position:absolute;
+      bottom:40px;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      gap:12px;
+    }
+
+    .dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:white;
+      opacity:.4;
+    }
+
+    .dot.active{
+      opacity:1;
+    }
+    
+    .arrow{
+
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+
+      width:52px;
+      height:52px;
+      border:none;
+      border-radius:50%;
+      background:rgba(255,255,255,.2);
+      backdrop-filter:blur(10px);
+      color:white;
+      font-size:28px;
+      cursor:pointer;
+      z-index:20;
+      transition:.3s;
+    }
+
+    .arrow:hover{
+
+      background:rgba(255,255,255,.35);
+    }
+
+    .left{
+    
+      left:30px;
+    }
+
+    .right{
+      right:30px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>CWPlatform</h1>
+  <nav>
+    <a href="#top">Главная</a>
+    <a href="#about">О проекте</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
+
+<section id="top" class="hero slider">
+  <div class="slide active">
+    <img src="images/picture1.png" class="hero-image">
+    <div class="hero-content">
+    <h2 class="fade-up"> CWPlatform </h2>
+    <h3 class="fade-up delay-1">
+      Мы — команда энтузиастов, создавшая идею цифровой платформы для аграрного рынка.
+      CWPlatform объединяет участников зерновой отрасли в едином пространстве,
+      упрощая поиск партнёров, взаимодействие и организацию поставок.</h3>
+    </div>
+  </div>
+  
+  
+  <div class="slide">
+    <img src="images/picture2.png" class="hero-image">
+    
+    <div class="hero-content">
+      <h2 class="fade-up">Удобная поставка зерна</h2>
+      <h3 class="fade-up delay-1">Простое решение для фермеров и покупателей</h3>
+      <h3 class="fade-up delay-2">Платформа объединяет участников рынка зерна в одном пространстве и помогает быстро организовать поставку без лишних этапов.
+      Мы упрощаем поиск партнёров, согласование условий и взаимодействие между сторонами.
+      </h3>
+    </div>
+  </div>
+
+
+  <div class="slide">
+    <img src="images/picture3.png" class="hero-image">
+    
+    <div class="hero-content">
+      <h2 class="fade-up">Простота использования</h2>
+      <h3 class="fade-up delay-1">"Удобство Платформы и Экономия Времени"</h3>
+      <h4 class="fade-up delay-2">Интерфейс разработан так, чтобы работа с платформой оставалась понятной независимо от опыта и уровня подготовки пользователя. Быстрый доступ к ключевым функциям помогает сократить время на поиск решений и организацию поставок.</h4>
+    </div>
+  </div>
+  
+  <button class="arrow left">
+    ❮
+    </button>
+    
+    <button class="arrow right">
+    ❯
+   </button>
+  <div class="slider-dots">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+  </div>
+</section>
+
+<section id="about">
+  <div class="content">
+    <img src="images/picture4.png" class="fade-up delay-2">
+    <div class="text">
+      <h2 class="fade-up">Надежные сделки</h2>
+      <h3 class="fade-up delay-1"><strong><br>Мы создаём условия для Прозрачного И Предсказуемого сотрудничества. Платформа ориентирована на проверку участников, понятные договорённости и сопровождение взаимодействия, снижая риски и повышая уровень доверия между сторонами.</strong></h3>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="content">
+    <img src="images/picture5.png" class="fade-up delay-2">
+    <div class="text">
+      <h2 class="fade-up">Простота использования - </h2>
+      <h3 class="fade-up delay-1"><br>Удобный инструмент для работы без лишних действий</h3>
+      <h4 class="fade-up delay-2"><br>Платформа разработана так, чтобы пользователь мог быстро разобраться в основных функциях и перейти к работе без длительного обучения. Удобная навигация, понятная структура и быстрый доступ к ключевым инструментам помогают сократить время на поиск решений, взаимодействие с партнёрами и организацию поставок. Независимо от опыта работы с цифровыми сервисами пользователь получает простой и понятный процесс работы.</h4>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="content">
+    <img src="images/picture6.png" class="fade-up delay-2">
+    <div class="text">
+      <h2 class="fade-up">Быстрый поиск партнеров</h2>
+      <h3 class="fade-up delay-1"><br>"Найти нужного покупателя или поставщика — проще"</h3>
+      <h4 class="fade-up delay-2"><br>Платформа помогает быстро находить подходящих участников рынка под конкретные задачи и объёмы поставки. Вместо длительного поиска пользователь получает удобный инструмент для установления деловых контактов и выхода на договорённость.</h4>
+    </div>
+  </div>
+</section>
+
+<footer id="contacts">
+  <h3><br>Социальные сети Команды</h3>
+  
+  <a><br>VK</a>
+  <a href="https://vk.com/id526823414" target="_blank"><br>Тагир Султанов - Разработчик сайта , CEO CWPlatform</a>
+  <a href="https://vk.ru/id1079157154" target="_blank">Давид Ахмедов - Разработчик идей , CEO CWPlatform
+  <a href="https:/vk.com/ghostingsx" target="_blank">Фатима Керимханова - Разработчик идей , CEO CWPlatform</a>
+  <a href="https:/vk.com/goodoggy" target="_blank">Светлана Полихраниди - Наставник "Я В Деле"</a>
+  <a href="https:/vk.com/id754333798" target="_blank">Мадина Сафарова - Разработчик идей , CEO CWPlatform</a>
+
+  <!--
+  <a><br>Telegram для связи с нами<br></a>
+  <a href="https://t.me/bel_0v3" target="_blank"><br>Тагир Султанов - Разработчик сайта , CEO CWPlatform</a>
+  <a href="https://t.me/davidcwp_ceo" target="_blank">Давид Ахмедов - Разработчик идей , CEO CWPlatform</a>
+  -->
+
+</footer>
+
+<script>
+  const elements = document.querySelectorAll('.fade-up');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+  const slides=document.querySelectorAll(".slide");
+  const dots=document.querySelectorAll(".dot");
+
+  let current=0;
+
+  function nextSlide(){
+
+  slides[current].classList.remove("active");
+
+  dots[current].classList.remove("active");
+
+  current++;
+
+  if(current>=slides.length){
+    current=0;
+  } 
+
+  slides[current].classList.add("active");
+
+  dots[current].classList.add("active");
+  }
+
+  setInterval(nextSlide,7000);
+  
+  const left=document.querySelector(".left");
+
+  const right=document.querySelector(".right");
+
+
+  function showSlide(index){
+
+
+    slides[current].classList.remove("active");
+
+
+    dots[current].classList.remove("active");
+
+
+    current=index;
+
+
+    if(current<0){
+
+      current=slides.length-1;
+
+    }
+
+
+    if(current>=slides.length){
+
+      current=0;
+
+    }
+
+
+    slides[current].classList.add("active");
+
+
+    dots[current].classList.add("active");
+
+
+  }
+
+
+  left.addEventListener("click",()=>{
+
+
+    showSlide(current-1);
+
+
+  });
+
+
+  right.addEventListener("click",()=>{
+
+
+    showSlide(current+1);
+
+  });
+</script>
+
+</body>
+</html>
